@@ -1,0 +1,90 @@
+/* Umum */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #e6f0ff;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Header */
+h2 {
+    background-color: #003366;
+    color: white;
+    padding: 15px;
+    margin: 0;
+    text-align: center;
+    font-size: 24px;
+}
+
+/* Form Container */
+form {
+    background-color: #ffffff;
+    max-width: 450px;
+    margin: 30px auto;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Label dan Input */
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #003366;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="file"],
+input[type="color"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 9px 12px;
+    margin-bottom: 16px;
+    border: 1px solid #ccd6e0;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+/* Radio & Checkbox */
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 6px;
+}
+
+.radio-group,
+.checkbox-group {
+    margin-bottom: 16px;
+}
+
+/* Tombol Submit */
+input[type="submit"] {
+    background-color: #004080;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    font-size: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0059b3;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    form {
+        padding: 20px;
+        max-width: 90%;
+    }
+}
