@@ -1,6 +1,7 @@
 
 <?php
-require 'function.php';
+require_once 'function.php';
+
 $query = "SELECT * FROM mahasiswa";
 $rows = query($query);
 ?> 
@@ -100,11 +101,11 @@ $rows = query($query);
             <td> <?= $mhs["nama"] ?> </td>
             <td><?= $mhs["nim"] ?></td>
             <td><?= $mhs["jurusan"] ?></td>
-            <td><?= $mhs["noHP"] ?></td>
+            <td><?= $mhs["no_hp"] ?></td>
            
         </tr>
         <?php $i++; } ?>
-    <table/>
+    </table>
        
 </body>
 </html>

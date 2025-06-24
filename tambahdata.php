@@ -1,12 +1,12 @@
 <?php
 
-    require'function.php';
-    
-    if (isset($_POST["submit"])) {
+require_once 'function.php';
+
+if (isset($_POST["submit"])) {
         $nama = $_POST["nama"];
         $nim = $_POST["nim"];
         $jurusan = $_POST["jurusan"];
-        $nohp = $_POST["no_hp"];
+        $no_hp = $_POST["no_hp"];
         
         // Proses upload foto
         if (isset($_FILES['foto']) && $_FILES['foto']['error'] == 0) {
@@ -59,7 +59,7 @@
         <label for="jurusan">Jurusan:</label>
         <input type="text" name="jurusan" id="jurusan" required><br>
 
-        <label for="nohp">No. HP:</label>
+        <label for="no_hp">No. HP:</label>
         <input type="text" name="no_hp" id="no_hp" required><br>
 
         <label for="foto">Foto:</label>

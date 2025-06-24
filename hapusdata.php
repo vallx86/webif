@@ -1,6 +1,6 @@
 <?php
 
-    require 'function.php';
+require_once 'function.php';
 
     $id = $_GET['id']; //mengambil id
 
