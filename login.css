@@ -1,0 +1,87 @@
+/* Font dari Google */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #d9e9ff, #f0f8ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-container {
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 320px;
+}
+
+h1 {
+    color: #003366;
+    margin-bottom: 25px;
+    font-size: 28px;
+}
+
+form {
+    text-align: left;
+}
+
+label {
+    font-weight: 600;
+    color: #003366;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 16px;
+    border: 1px solid #b0c4de;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.remember-me label {
+    margin-left: 5px;
+    font-weight: normal;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #003366;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #00509e;
+}
+
+p {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+a {
+    color: #00509e;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

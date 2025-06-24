@@ -1,0 +1,88 @@
+
+body {
+    margin: 0;
+    background-color: #e6f0ff; /* biru muda */
+    font-family: 'Roboto', sans-serif; /* Menggunakan font Roboto */
+    color: #003366;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #002244;
+    margin-top: 20px;
+    font-family: 'Lora', serif; /* Menggunakan font Lora untuk judul */
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #004080;
+    padding: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 51, 102, 0.2); /* Memberikan bayangan pada navbar */
+}
+
+nav a {
+    color: white;
+    background-color: #0059b3;
+    text-decoration: none;
+    margin: 0 15px;
+    padding: 12px 25px; /* Menyesuaikan padding untuk tampilan lebih elegan */
+    border-radius: 10px; /* Membuat border lebih bulat */
+    transition: background-color 0.3s, transform 0.3s; /* Menambahkan efek transform */
+}
+
+nav a:hover {
+    background-color: #003d73;
+    transform: scale(1.05); /* Efek zoom saat hover */
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    padding: 40px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 8px 20px rgba(0, 51, 102, 0.1); /* Bayangan lebih halus dan besar untuk kesan elegan */
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    box-shadow: 0 12px 30px rgba(0, 51, 102, 0.2); /* Menambahkan efek bayangan saat hover */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th {
+    background-color: #cce0ff;
+    color: #002244;
+    font-family: 'Lora', serif; /* Font elegan untuk header tabel */
+    font-weight: normal; /* Membuat tulisan lebih ringan */
+}
+
+th, td {
+    border: 1px solid #99c2ff;
+    padding: 12px;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+}
+
+/* ================= Font ================= */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Lora:wght@400;700&display=swap');
