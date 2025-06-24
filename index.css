@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Import font Poppins dari Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
@@ -94,3 +95,101 @@ ul ul, ol ul {
 ul li, ol li {
     margin-bottom: 8px;
 }
+=======
+/* Import font Poppins dari Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to bottom, #d9e9ff, #f0f8ff);
+    color: #003366;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #003366;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 32px;
+}
+
+nav {
+    background-color: #00509e;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    gap: 30px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #003366;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #336699;
+}
+
+main {
+    padding: 30px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.image-container {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.image-container img {
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+section {
+    margin-bottom: 40px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+section h2 {
+    margin-bottom: 15px;
+    color: #00509e;
+}
+
+.profile-info p {
+    margin: 5px 0;
+    font-weight: 500;
+}
+
+ul, ol {
+    padding-left: 20px;
+}
+
+ul ul, ol ul {
+    margin-top: 5px;
+    padding-left: 20px;
+}
+
+ul li, ol li {
+    margin-bottom: 8px;
+}
+>>>>>>> a890ccbbd027a16acddea1109735b79048959f70

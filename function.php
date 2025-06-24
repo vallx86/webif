@@ -1,5 +1,8 @@
 <?php
-$koneksi = mysqli_connect("localhost", "root", "root", "webif");
+// Koneksi database - pilih salah satu yang sesuai dengan konfigurasi Anda
+$koneksi = mysqli_connect("localhost", "root", "root", "webif"); // Versi 1
+// $koneksi = mysqli_connect("localhost:3307", "root", "", "webif"); // Versi 2
+
 if (!$koneksi) {
     die("Koneksi gagal: " . mysqli_connect_error());
 }
@@ -23,7 +26,13 @@ function tambahmahasiswa($data)
     $jurusan = htmlspecialchars($data['jurusan']);
     $no_hp = htmlspecialchars($data['no_hp']);
 
-    $query = "INSERT INTO mahasiswa VALUES (NULL, '$nama', '$nim', '$jurusan', '$no_hp')";
+    // Upload foto
+    $foto = upload();
+    if (!$foto) {
+        return false;
+    }
+
+    $query = "INSERT INTO mahasiswa VALUES (NULL, '$nama', '$nim', '$jurusan', '$no_hp', '$foto')";
     mysqli_query($koneksi, $query);
 
     return mysqli_affected_rows($koneksi);
@@ -32,11 +41,24 @@ function tambahmahasiswa($data)
 function hapusdata($id)
 {
     global $koneksi;
+
+    // Ambil nama file foto sebelum menghapus
+    $query = "SELECT foto FROM mahasiswa WHERE id=$id";
+    $result = mysqli_query($koneksi, $query);
+    $row = mysqli_fetch_assoc($result);
+    $foto = $row['foto'];
+
+    // Hapus file foto jika bukan default
+    if ($foto != 'default.jpg') {
+        unlink("image/" . $foto);
+    }
+
     $query = "DELETE FROM mahasiswa WHERE id=$id";
     mysqli_query($koneksi, $query);
 
     return mysqli_affected_rows($koneksi);
 }
+
 function upload()
 {
     $namaFile = $_FILES['foto']['name'];
@@ -70,3 +92,4 @@ function upload()
 
     return $namaFileBaru;
 }
+?>
