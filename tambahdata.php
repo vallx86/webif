@@ -1,6 +1,6 @@
 <?php
 
-require_once 'function.php';
+require 'function.php';
 
 if (isset($_POST["submit"])) {
         $nama = $_POST["nama"];

@@ -11,13 +11,12 @@ function query($query)
 {
     global $koneksi;
     $result = mysqli_query($koneksi, $query);
-    if (!$result) {
-        die("Query error: " . mysqli_error($koneksi));
-    }
     $rows = [];
+
     while ($row = mysqli_fetch_assoc($result)) {
         $rows[] = $row;
     }
+
     return $rows;
 }
 
@@ -26,23 +25,28 @@ function tambahmahasiswa($data)
     global $koneksi;
 
     // Validasi dan sanitasi input
-    $nama = htmlspecialchars(stripslashes(trim($data['nama'])));
-    $nim = htmlspecialchars(stripslashes(trim($data['nim'])));
-    $jurusan = htmlspecialchars(stripslashes(trim($data['jurusan'])));
-    $no_hp = htmlspecialchars(stripslashes(trim($data['no_hp'])));
+    $nama = htmlspecialchars($data["nama"]);
+    $nim = htmlspecialchars($data["nim"]);
+    $jurusan = htmlspecialchars($data["jurusan"]);
+    $nohp = htmlspecialchars($data["nohp"]);
 
-    // Upload foto
-    $foto = upload();
-    if (!$foto) {
-        return false;
+
+    //fungsi uploud foto 
+    $file = $_FILES['foto'] ['name'] ;
+    $namafile = date('dmy_hm').'_'. $file;
+    $temp = $_FILES['foto'] ['tmp_name'] ;
+    $folder = 'images/';
+    $path = $folder . $namafile;
+
+    if(move_uploaded_file($temp, $path))
+    {
+
+    $query = "INSERT INTO mahasiswa VALUES ('', '$namafile', '$nama', '$nim', '$jurusan', '$nohp')";
+    mysqli_query($koneksi, $query) ;
+    
     }
-
-    // Gunakan prepared statement untuk keamanan
-    $stmt = mysqli_prepare($koneksi, "INSERT INTO mahasiswa VALUES (NULL, ?, ?, ?, ?, ?)");
-    mysqli_stmt_bind_param($stmt, "sssss", $nama, $nim, $jurusan, $no_hp, $foto);
-    mysqli_stmt_execute($stmt);
-
     return mysqli_affected_rows($koneksi);
+
 }
 
 function hapusdata($id)
@@ -149,6 +153,43 @@ if (!function_exists('getNoTelp')) {
 
         return null; // Jika tidak ditemukan
     }
+
+}
+
+function ubahdata($data,$id)
+{
+    global $koneksi;
+
+    // Validasi dan sanitasi input
+    $nama = htmlspecialchars($data["nama"]);
+    $nim = htmlspecialchars($data["nim"]);
+    $jurusan = htmlspecialchars($data["jurusan"]);
+    $no_hp = htmlspecialchars($data["no_hp"]);
+
+
+    //fungsi uploud foto 
+    $file = $_FILES['foto'] ['name'] ;
+    $namafile = date('dmy_hm').'_'. $file;
+    $temp = $_FILES['foto'] ['tmp_name'] ;
+    $folder = 'img/';
+    $path = $folder . $namafile;
+
+    if(move_uploaded_file($temp, $path))
+    {
+    $query = "UPDATE  mahasiswa SET 
+     foto = '$namafile',
+     nama = '$nama',
+     nim = '$nim',
+     jurusan = '$jurusan',
+     no_hp = '$no_hp'
+
+     WHERE id = $id; ";
+
+    mysqli_query($koneksi, $query) ;
+    
+    }
+    return mysqli_affected_rows($koneksi);
+
 }
 
 ?>
